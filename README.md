@@ -4,6 +4,8 @@ It's a simple and beautiful Question and Answer package for both android & ios.
 
 ## Screenshots 
 
+![example](https://github.com/vignesh7501/flutter_question_answer_widget/blob/main/screenShots/ezgif.com-gif-maker.gif?raw=true)
+
 ![example](https://github.com/vignesh7501/flutter_question_answer_widget/blob/main/screenShots/img.jpg?raw=true)
 
 ## Usage
