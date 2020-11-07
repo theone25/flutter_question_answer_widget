@@ -1,6 +1,6 @@
 name: flutter_question_answer_widget
 description: It's a simple and beautiful Question and Answer package for both android & ios.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/vignesh7501/flutter_question_answer_widget
 
 environment:

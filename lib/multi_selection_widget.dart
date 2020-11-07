@@ -1,22 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_question_answer_widget/question_text_widget.dart';
 
+/// MultiSelectionWidget
 class MultiSelectionWidget extends StatefulWidget {
+  /// it's question text and can change the text style also
   final String question;
+
+  /// answerList - it'll contain list of all answers.
   final List answerList;
+
+  /// based on answerList the selected answered the widget will be update
   final List answeredList;
+
+  /// onChanged will give the selected value
+  /// ex:
+  /// onChanged: (value){
+  ///   setState((){
+  ///     oldValue = value;
+  ///   });
+  /// }
   final ValueChanged<String> onChanged;
+
+  /// default answerMargin is EdgeInsets.all(10.0) and can update the answerMargin as per the requirements
   final EdgeInsets answerMargin;
+
+  /// answer widget width - default width : 100.0
   final double answerWidth;
+
+  /// answer widget height - default height : 40.0
   final double answerHeight;
+
+  /// default questionTextStyle is TextStyle(fontSize: 16, fontWeight: FontWeight.bold) and
+  /// can update the questionTextStyle as per the requirements
   final TextStyle questionTextStyle;
+
+  /// default selectedAnswerBackGroundColor is Colors.blue and can update the selectedAnswerBackGroundColor as per the requirements
   final Color selectedAnswerBackGroundColor;
+
+  /// default unSelectedAnswerBackGroundColor is Colors.white and can update the unSelectedAnswerBackGroundColor as per the requirements
   final Color unSelectedAnswerBackGroundColor;
+
+  /// default selectedAnswerTextColor is Colors.white and can update the selectedAnswerTextColor as per the requirements
   final Color selectedAnswerTextColor;
+
+  /// default unSelectedAnswerTextColor is Colors.black and can update the unSelectedAnswerTextColor as per the requirements
   final Color unSelectedAnswerTextColor;
+
+  /// default answersFontSize is 14 and can update the answersFontSize as per the requirements
   final double answersFontSize;
+
+  /// default answersFontFamily is flutter-default and can update the answersFontFamily as per the requirements
   final String answersFontFamily;
+
+  /// default questionMaxLine is 1 and can update the questionMaxLine as per the requirements
   final int questionMaxLine;
+
+  /// default questionOverFlow is TextOverflow.ellipsis and can update the questionOverFlow as per the requirements
   final TextOverflow questionOverFlow;
 
   const MultiSelectionWidget(
@@ -44,6 +83,7 @@ class MultiSelectionWidget extends StatefulWidget {
 }
 
 class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
+  /// main build
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,19 +91,25 @@ class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// question widget
           QuestionTextWidget(
             title: widget.question,
             textStyle: widget.questionTextStyle,
             maxLine: widget.questionMaxLine,
             questionOverFlow: widget.questionOverFlow,
           ),
+
+          /// default for Q & A padding
           SizedBox(height: 10),
+
+          /// answer list widget
           _listView(),
         ],
       ),
     );
   }
 
+  /// answer list widget
   Widget _listView() {
     return Container(
       width: (widget.answerWidth == null) ? 100.0 : widget.answerWidth,
@@ -111,11 +157,13 @@ class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
     );
   }
 
+  /// for selected widget update
   bool _selectedValue(int index) {
     return (widget.answeredList != null &&
         widget.answeredList.contains(widget.answerList[index]));
   }
 
+  /// for selected widget update
   Color _selectedBackgroundColor(int index) {
     if (widget.selectedAnswerBackGroundColor == null) {
       return Colors.blue;
@@ -123,6 +171,7 @@ class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
     return widget.selectedAnswerBackGroundColor;
   }
 
+  /// for selected widget update
   Color _unSelectedBackgroundColor(int index) {
     if (widget.unSelectedAnswerBackGroundColor == null) {
       return Colors.white;
@@ -130,6 +179,7 @@ class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
     return widget.unSelectedAnswerBackGroundColor;
   }
 
+  /// for selected widget update
   Color _selectedAnswerTextColor(int index) {
     if (widget.selectedAnswerTextColor == null) {
       return Colors.white;
@@ -137,6 +187,7 @@ class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
     return widget.selectedAnswerTextColor;
   }
 
+  /// for selected widget update
   Color _unSelectedAnswerTextColor(int index) {
     if (widget.selectedAnswerTextColor == null) {
       return Colors.black;

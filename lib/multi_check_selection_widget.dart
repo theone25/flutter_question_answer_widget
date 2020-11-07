@@ -1,18 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_question_answer_widget/question_text_widget.dart';
 
+/// MultiCheckSelectionWidget
 class MultiCheckSelectionWidget extends StatefulWidget {
+  /// it's question text and can change the text style also
   final String question;
+
+  /// answerList - it'll contain list of all answers.
   final List answerList;
+
+  /// based on answerList the selected answered the widget will be update
   final List answered;
+
+  /// onChanged will give the selected value
+  /// ex:
+  /// onChanged: (value){
+  ///   setState((){
+  ///     oldValue = value;
+  ///   });
+  /// }
   final ValueChanged<String> onChanged;
+
+  /// default answerMargin is EdgeInsets.all(10.0) and can update the answerMargin as per the requirements
   final EdgeInsets answerMargin;
+
+  /// default questionTextStyle is TextStyle(fontSize: 16, fontWeight: FontWeight.bold) and
+  /// can update the questionTextStyle as per the requirements
   final TextStyle questionTextStyle;
+
+  /// default activeColor is Colors.blue and can update the activeColor as per the requirements
   final Color activeColor;
+
+  /// default answerTextColor is Colors.black and can update the answerTextColor as per the requirements
   final Color answerTextColor;
+
+  /// default answersFontSize is 14 and can update the answersFontSize as per the requirements
   final double answersFontSize;
+
+  /// default answersFontFamily is flutter-default and can update the answersFontFamily as per the requirements
   final String answersFontFamily;
+
+  /// default questionMaxLine is 1 and can update the questionMaxLine as per the requirements
   final int questionMaxLine;
+
+  /// default questionOverFlow is TextOverflow.ellipsis and can update the questionOverFlow as per the requirements
   final TextOverflow questionOverFlow;
 
   const MultiCheckSelectionWidget(
@@ -37,6 +68,7 @@ class MultiCheckSelectionWidget extends StatefulWidget {
 }
 
 class _MultiCheckSelectionWidgetState extends State<MultiCheckSelectionWidget> {
+  /// main build
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,19 +76,25 @@ class _MultiCheckSelectionWidgetState extends State<MultiCheckSelectionWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// question widget
           QuestionTextWidget(
             title: widget.question,
             textStyle: widget.questionTextStyle,
             maxLine: widget.questionMaxLine,
             questionOverFlow: widget.questionOverFlow,
           ),
+
+          /// default for Q & A padding
           SizedBox(height: 10),
+
+          /// answer list widget
           _listView(),
         ],
       ),
     );
   }
 
+  /// answer list widget
   Widget _listView() {
     return Container(
       margin: (widget.answerMargin == null)
@@ -115,11 +153,13 @@ class _MultiCheckSelectionWidgetState extends State<MultiCheckSelectionWidget> {
     );
   }
 
+  /// for selected widget update
   bool _selectedValue(int index) {
     return (widget.answered != null &&
         widget.answered.contains(widget.answerList[index]));
   }
 
+  /// for selected widget update
   Color _activeColor(int index) {
     if (widget.activeColor == null) {
       return Colors.blue;
