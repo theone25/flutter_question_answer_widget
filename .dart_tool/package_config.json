@@ -128,13 +128,13 @@
       "languageVersion": "2.10"
     },
     {
-      "name": "flutter_package",
+      "name": "flutter_question_answer_widget",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-11-05T07:11:46.615112Z",
+  "generated": "2020-11-06T10:02:38.653840Z",
   "generator": "pub",
   "generatorVersion": "2.10.2"
 }
