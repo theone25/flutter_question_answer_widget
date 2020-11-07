@@ -156,11 +156,3 @@ class FlutterQuestionAnswerWidget {
     );
   }
 }
-
-enum QuestionAnsType {
-  SingleSelection,
-  MultiSelection,
-  SingleCheck,
-  MultiCheck,
-  Radio,
-}
