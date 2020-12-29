@@ -128,18 +128,18 @@ class _MultiSelectionWidgetState extends State<MultiSelectionWidget> {
                 color: _selectedValue(index)
                     ? _selectedBackgroundColor(index)
                     : _unSelectedBackgroundColor(index),
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(15),
                 border: Border.all(
                     color: _selectedValue(index)
                         ? _selectedBackgroundColor(index)
                         : Colors.black)),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(15),
               child: FlatButton(
                 onPressed: () {
                   widget.onChanged(widget.answerList[index]);
                 },
-                padding: EdgeInsets.all(0),
+                padding: EdgeInsets.only(left: 5, right: 5),
                 child: Text(
                   widget.answerList[index],
                   style: TextStyle(
