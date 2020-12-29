@@ -100,7 +100,11 @@ class _SingleSelectionWidgetState extends State<SingleSelectionWidget> {
           ),
 
           /// default for Q & A padding
-          SizedBox(height: 10),
+          widget.question == ""
+              ? SizedBox(
+                  height: 2,
+                )
+              : SizedBox(height: 10),
 
           /// answer list widget
           _listView(),
@@ -128,18 +132,18 @@ class _SingleSelectionWidgetState extends State<SingleSelectionWidget> {
                 color: _selectedValue(index)
                     ? _selectedBackgroundColor(index)
                     : _unSelectedBackgroundColor(index),
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(15),
                 border: Border.all(
                     color: _selectedValue(index)
                         ? _selectedBackgroundColor(index)
                         : Colors.black)),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(15),
               child: FlatButton(
                 onPressed: () {
                   widget.onChanged(widget.answerList[index]);
                 },
-                padding: EdgeInsets.all(0),
+                padding: EdgeInsets.only(left: 5, right: 5),
                 child: Text(
                   widget.answerList[index],
                   style: TextStyle(
